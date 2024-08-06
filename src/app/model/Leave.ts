@@ -1,5 +1,5 @@
 export interface Leave {
-    id?: number;
+    id: number;
     employeeId: string;
     employeeName: string;
     phoneNumber: string;
