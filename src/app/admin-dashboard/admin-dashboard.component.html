@@ -1,7 +1,8 @@
-<!-- Pending Leaves Section -->
+<div class="container-fluid mt-3 ">
+  <!-- Pending Leaves Section -->
 <h2>Pending Leaves</h2>
 <div *ngIf="pendingLeaves.length; else noPendingLeaves">
-  <table class="table table-striped" border="1">
+  <table class="table table-striped" >
     <thead>
       <tr>
         <th>Employee ID</th>
@@ -27,7 +28,7 @@
         <td>{{ leave.reason }}</td>
         <td>
           <button (click)="approveLeave(leave)" class="btn btn-success btn-sm">Approve</button>
-          <button (click)="cancelLeave(leave)" class="btn btn-danger btn-sm">Reject</button>
+          <button (click)="cancelLeave(leave)" class="btn btn-danger btn-sm ms-3">Reject</button>
         </td>
       </tr>
     </tbody>
@@ -40,7 +41,7 @@
 <!-- Approved Leaves Section -->
 <h2>Approved Leaves</h2>
 <div *ngIf="approvedLeaves.length; else noApprovedLeaves">
-  <table class="table table-striped" border="1">
+  <table class="table table-striped" >
     <thead>
       <tr>
         <th>Employee ID</th>
@@ -74,7 +75,7 @@
 <!-- Cancelled Leaves Section -->
 <h2>Cancelled Leaves</h2>
 <div *ngIf="cancelledLeaves.length; else noCancelledLeaves">
-  <table class="table table-striped" border="1">
+  <table class="table table-striped" >
     <thead>
       <tr>
         <th>Employee ID</th>
@@ -104,3 +105,5 @@
 <ng-template #noCancelledLeaves>
   <p>No cancelled leave requests.</p>
 </ng-template>
+
+</div>

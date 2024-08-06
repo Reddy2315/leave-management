@@ -35,14 +35,14 @@ export class AdminDashboardComponent {
   approveLeave(request: Leave): void {
     request.status = 'approved';
     this.leaveService.updateLeaveRequest(request).subscribe(() => {
-      this.loadLeaveRequests(); // Refresh the list after approval
+      this.loadLeaveRequests(); 
     });
   }
 
   cancelLeave(request: Leave): void {
     request.status = 'rejected';
     this.leaveService.updateLeaveRequest(request).subscribe(() => {
-      this.loadLeaveRequests(); // Refresh the list after cancellation
+      this.loadLeaveRequests(); 
     });
   }
 }

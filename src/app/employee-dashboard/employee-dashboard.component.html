@@ -1,48 +1,59 @@
-<form [formGroup]="leaveForm" (ngSubmit)="submitLeaveRequest()" class="container mt-5 p-4 border rounded shadow-sm bg-light">
+<div class="container">
+  <form [formGroup]="leaveForm" (ngSubmit)="submitLeaveRequest()" class="container mt-5 p-4 border rounded shadow-sm bg-light">
     <h2 class="mb-4 text-center">Employee Leave Application</h2>
     
     <div class="form-group mb-3">
       <label for="employeeId">Employee Id</label>
-      <input type="text" id="employeeId" formControlName="employeeId" class="form-control" />
+      <input type="text" id="employeeId" formControlName="employeeId" class="form-control" 
+      placeholder="Enter your Id"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="employeeName">Employee Name</label>
-      <input type="text" id="employeeName" formControlName="employeeName" class="form-control" />
+      <input type="text" id="employeeName" formControlName="employeeName" class="form-control" 
+      placeholder="Enter your name"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="phoneNumber">Phone Number</label>
-      <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" />
+      <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" 
+      placeholder="Enter your phone number"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="managerName">Manager Name</label>
-      <input type="text" id="managerName" formControlName="managerName" class="form-control" />
+      <input type="text" id="managerName" formControlName="managerName" class="form-control" 
+      placeholder="Enter your managername"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="fromDate">From Date</label>
-      <input type="date" id="fromDate" formControlName="fromDate" class="form-control" />
+      <input type="date" id="fromDate" formControlName="fromDate" class="form-control" 
+      placeholder="Enter from date"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="toDate">To Date</label>
-      <input type="date" id="toDate" formControlName="toDate" class="form-control" />
+      <input type="date" id="toDate" formControlName="toDate" class="form-control" 
+      placeholder="Enter to date"/>
     </div>
   
     <div class="form-group mb-3">
       <label for="totalDays">Total Days</label>
-      <input type="number" id="totalDays" formControlName="totalDays" class="form-control" />
+      <input type="number" id="totalDays" formControlName="totalDays" class="form-control" 
+      placeholder="Enter no of days"/>
     </div>
   
     <div class="form-group mb-4">
       <label for="reason">Reason</label>
-      <textarea id="reason" formControlName="reason" class="form-control"></textarea>
+      <textarea id="reason" formControlName="reason" class="form-control"
+      placeholder="Enter reason"></textarea>
     </div>
   
     <div class="d-flex justify-content-center">
       <button type="submit" class="btn btn-primary btn-lg" [disabled]="!leaveForm.valid">Submit</button>
+      <button type="reset" class="btn btn-secondary btn-lg ms-5" >Clear</button>
     </div>
   </form>
+</div>
   

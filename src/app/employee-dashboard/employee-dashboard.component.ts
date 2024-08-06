@@ -18,40 +18,30 @@ export class EmployeeDashboardComponent {
     this.leaveForm = this.fb.group({
       employeeId: ['', Validators.required],
       employeeName: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       managerName: ['', Validators.required],
       fromDate: ['', Validators.required],
       toDate: ['', Validators.required],
-      totalDays: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+      totalDays: ['', [Validators.required, Validators.min(1)]],
       reason: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {
-    this.leaveForm.valueChanges.subscribe(() => {
-      this.checkFormValidity();
-    });
-  }
+  
 
-  checkFormValidity(): void {
-    this.leaveForm.get('employeeId')?.setErrors(null);
-    this.leaveForm.get('employeeName')?.setErrors(null);
-    this.leaveForm.get('phoneNumber')?.setErrors(null);
-    this.leaveForm.get('managerName')?.setErrors(null);
-    this.leaveForm.get('fromDate')?.setErrors(null);
-    this.leaveForm.get('toDate')?.setErrors(null);
-    this.leaveForm.get('totalDays')?.setErrors(null);
-    this.leaveForm.get('reason')?.setErrors(null);
-  }
-
-  submitLeaveRequest(): void {
-    if (this.leaveForm.valid) {
-      this.leaveService.createLeaveRequest(this.leaveForm.value).subscribe(() => {
-        alert('Leave request submitted successfully!');
-        this.leaveForm.reset();
-      }, error => {
-        console.error('Error submitting leave request:', error);
+  submitLeaveRequest(): void { 
+    if (this.leaveForm.valid) {    
+      this.leaveService.createLeaveRequest(this.leaveForm.value).subscribe({
+        next: () => {        
+          alert('Leave request submitted successfully!');
+          this.leaveForm.reset();
+        },
+        error: (error) => {  
+          console.error('Error submitting leave request:', error);
+          alert('Failed to submit leave request. Please try again.');
+        }
       });
     }
   }
+  
 }

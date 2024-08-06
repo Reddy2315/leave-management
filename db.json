@@ -1,5 +1,16 @@
 {
   "leaves": [
-    
+    {
+      "id": "0cc3",
+      "employeeId": "10001",
+      "employeeName": "Nagendharreddy",
+      "phoneNumber": "09123456789",
+      "managerName": "Prasad",
+      "fromDate": "2024-08-06",
+      "toDate": "2024-08-06",
+      "totalDays": 1,
+      "reason": "Medical Emergency",
+      "status": "approved"
+    }
   ]
 }

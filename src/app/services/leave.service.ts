@@ -22,6 +22,6 @@ export class LeaveService {
   }
 
   updateLeaveRequest(leave: Leave): Observable<Leave> {
-    return this.http.put<Leave>(`${this.baseUrl}/${leave.id}`, leave);
+    return this.http.put<Leave>(this.baseUrl+"/"+leave.id, leave);
   }
 }
