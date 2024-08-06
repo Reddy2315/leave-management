@@ -1,0 +1,106 @@
+<!-- Pending Leaves Section -->
+<h2>Pending Leaves</h2>
+<div *ngIf="pendingLeaves.length; else noPendingLeaves">
+  <table class="table table-striped" border="1">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Phone Number</th>
+        <th>Manager Name</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Total Days</th>
+        <th>Reason</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of pendingLeaves">
+        <td>{{ leave.employeeId }}</td>
+        <td>{{ leave.employeeName }}</td>
+        <td>{{ leave.phoneNumber }}</td>
+        <td>{{ leave.managerName }}</td>
+        <td>{{ leave.fromDate | date }}</td>
+        <td>{{ leave.toDate | date }}</td>
+        <td>{{ leave.totalDays }}</td>
+        <td>{{ leave.reason }}</td>
+        <td>
+          <button (click)="approveLeave(leave)" class="btn btn-success btn-sm">Approve</button>
+          <button (click)="cancelLeave(leave)" class="btn btn-danger btn-sm">Reject</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noPendingLeaves>
+  <p>No pending leave requests.</p>
+</ng-template>
+
+<!-- Approved Leaves Section -->
+<h2>Approved Leaves</h2>
+<div *ngIf="approvedLeaves.length; else noApprovedLeaves">
+  <table class="table table-striped" border="1">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Phone Number</th>
+        <th>Manager Name</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Total Days</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of approvedLeaves">
+        <td>{{ leave.employeeId }}</td>
+        <td>{{ leave.employeeName }}</td>
+        <td>{{ leave.phoneNumber }}</td>
+        <td>{{ leave.managerName }}</td>
+        <td>{{ leave.fromDate | date }}</td>
+        <td>{{ leave.toDate | date }}</td>
+        <td>{{ leave.totalDays }}</td>
+        <td>{{ leave.reason }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noApprovedLeaves>
+  <p>No approved leave requests.</p>
+</ng-template>
+
+<!-- Cancelled Leaves Section -->
+<h2>Cancelled Leaves</h2>
+<div *ngIf="cancelledLeaves.length; else noCancelledLeaves">
+  <table class="table table-striped" border="1">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Phone Number</th>
+        <th>Manager Name</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Total Days</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let leave of cancelledLeaves">
+        <td>{{ leave.employeeId }}</td>
+        <td>{{ leave.employeeName }}</td>
+        <td>{{ leave.phoneNumber }}</td>
+        <td>{{ leave.managerName }}</td>
+        <td>{{ leave.fromDate | date }}</td>
+        <td>{{ leave.toDate | date }}</td>
+        <td>{{ leave.totalDays }}</td>
+        <td>{{ leave.reason }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noCancelledLeaves>
+  <p>No cancelled leave requests.</p>
+</ng-template>
