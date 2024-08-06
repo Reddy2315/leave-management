@@ -1,5 +1,5 @@
 <div class="container-fluid mt-3 ">
-  <!-- Pending Leaves Section -->
+  <!-- Pending Leaves -->
 <h2>Pending Leaves</h2>
 <div *ngIf="pendingLeaves.length; else noPendingLeaves">
   <table class="table table-striped" >
@@ -38,7 +38,7 @@
   <p>No pending leave requests.</p>
 </ng-template>
 
-<!-- Approved Leaves Section -->
+<!-- Approved Leaves -->
 <h2>Approved Leaves</h2>
 <div *ngIf="approvedLeaves.length; else noApprovedLeaves">
   <table class="table table-striped" >
@@ -72,7 +72,7 @@
   <p>No approved leave requests.</p>
 </ng-template>
 
-<!-- Cancelled Leaves Section -->
+<!-- Cancelled Leaves -->
 <h2>Cancelled Leaves</h2>
 <div *ngIf="cancelledLeaves.length; else noCancelledLeaves">
   <table class="table table-striped" >
